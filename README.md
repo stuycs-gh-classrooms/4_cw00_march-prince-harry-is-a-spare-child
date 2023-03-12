@@ -23,27 +23,27 @@ Based on the images above, answer the following questions.
 #### Question 0
 What parts of the original map are being highlighted by the edge detection algorithm?
 
-YOUR ANSWER HERE (delete this line)
+The title, state names, the state/country borders, the island borders.
 
 #### Question 1
 What information that was part of the original image has been lost via edge detection?
 
-YOUR ANSWER HERE (delete this line)
+Darker areas of the map lost their state borders. Areas of elevation, state borders, and text are indistinct: they are all edge. The white border above the image is lost.
 
 #### Question 2
 What information is present in the grascale version that is not in the edge detected version?
 
-YOUR ANSWER HERE (delete this line)
+Land, water, mountains, text, non-USA areas, the img border are distinguishable by value.
 
 #### Question 3
 What information that was part of the original image has been lost via grayscale conversion?
 
-YOUR ANSWER HERE (delete this line)
+Blue and red are indistinguishable.
 
 #### Question 4
 In a temperature map, it is often useful to highlight particular temperature ranges. If you wanted to focus on higher temperatures, you might want to find a way to programatically highlight regions that are more red than others. Come up with an algorithm that would process the image such that the red regions are more prominent.
 
-YOUR ANSWER HERE (delete this line)
+If colorValue's red > grayValue, return colorValue. Else, color is not red and therefore return grayValue.
 
 ---
 
