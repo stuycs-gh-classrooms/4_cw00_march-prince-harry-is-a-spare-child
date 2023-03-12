@@ -17,6 +17,7 @@ void setup() {
   resolution = DOT_RESOLUTION;
   art = loadImage(PICFILE);
   art.loadPixels();
+  noStroke();
 }//setup
 
 /*================================
@@ -68,11 +69,28 @@ int getIndexFromXY(int x, int y, PImage img) {
 
 PImage highlightRed(PImage img) {
   PImage newImg = new PImage(img.width, img.height);
+  for (int p=0; p < img.width * img.height; p++) {
+    if (red(img.pixels[p]) > calculateGray(img.pixels[p])) {
+      newImg.pixels[p] = img.pixels[p];
+    }//if red stay red
+    else {
+      newImg.pixels[p] = color(calculateGray(img.pixels[p]));
+    }//else become gray
+  }//for
   return newImg;
 }//higlightRed
 
 
 
 void dots(PImage img, int resolution) {
-
+  for (int x=0; x < img.width; x += resolution) {
+    for (int y=0; y < img.height; y += resolution) {
+      if (red(img.pixels[getIndexFromXY(x, y, img)]) > calculateGray(img.pixels[getIndexFromXY(x, y, img)])) {
+        fill(255, 0, 0);
+      } else {
+        fill(0, 0, 255);
+      }
+      circle(x, y, resolution/2);
+    }
+  }
 }//dots
